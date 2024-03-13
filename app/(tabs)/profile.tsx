@@ -1,21 +1,22 @@
 import React from 'react';
-import {Text, View} from "react-native";
-import styles from "@/constants/Styles";
-import {useAuth} from "@clerk/clerk-expo";
-import {router} from "expo-router";
+import { Text, View } from 'react-native';
+import styles from '@/constants/Styles';
+import { useAuth } from '@clerk/clerk-expo';
+import { Redirect, router, useFocusEffect } from 'expo-router';
 
 function Profile() {
-    const {isSignedIn} = useAuth()
+  const { isSignedIn } = useAuth();
 
-    if (!isSignedIn) {
-        router.navigate('(auth)/SignIn')
-    }
+  //   if (!isSignedIn) {
+  //     console.log('I FIRE');
+  //     return <Redirect href={'(auth)/SignIn'} />;
+  //   }
 
-    return (
-        <View style={styles.container}>
-            <Text>Logged in</Text>
-        </View>
-    );
+  return (
+    <View style={styles.container}>
+      <Text>Logged in</Text>
+    </View>
+  );
 }
 
 export default Profile;
